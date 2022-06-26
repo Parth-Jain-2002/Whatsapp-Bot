@@ -1,28 +1,3 @@
-2022/06/27-01:08:20.937 b8f4 Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\functions\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/06/27-01:08:20.939 b8f4 Recovering log #418
-2022/06/27-01:08:21.228 b8f4 Reusing old log C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\functions\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000418.log 
-2022/06/27-01:08:40.210 9674 Level-0 table #431: started
-2022/06/27-01:08:40.254 9674 Level-0 table #431: 1213595 bytes OK
-2022/06/27-01:08:40.256 9674 Delete type=0 #418
-2022/06/27-01:08:45.328 b03c Compacting 1@1 + 9@2 files
-2022/06/27-01:08:45.592 b03c Generated table #432@1: 32218 keys, 2254374 bytes
-2022/06/27-01:08:45.725 b03c Generated table #433@1: 26629 keys, 2280215 bytes
-2022/06/27-01:08:45.887 b03c Generated table #434@1: 66935 keys, 2255689 bytes
-2022/06/27-01:08:45.985 b03c Generated table #435@1: 22651 keys, 2189273 bytes
-2022/06/27-01:08:46.053 b03c Generated table #436@1: 2540 keys, 2152910 bytes
-2022/06/27-01:08:46.142 b03c Generated table #437@1: 15581 keys, 2204480 bytes
-2022/06/27-01:08:46.292 b03c Generated table #438@1: 22635 keys, 2215175 bytes
-2022/06/27-01:08:46.475 b03c Generated table #439@1: 84291 keys, 2230884 bytes
-2022/06/27-01:08:46.533 b03c Generated table #440@1: 26529 keys, 615709 bytes
-2022/06/27-01:08:46.533 b03c Compacted 1@1 + 9@2 files => 18398709 bytes
-2022/06/27-01:08:46.533 b03c compacted to: files[ 0 0 9 0 0 0 0 ]
-2022/06/27-01:08:46.534 b03c Delete type=2 #420
-2022/06/27-01:08:46.534 b03c Delete type=2 #421
-2022/06/27-01:08:46.534 b03c Delete type=2 #422
-2022/06/27-01:08:46.534 b03c Delete type=2 #423
-2022/06/27-01:08:46.534 b03c Delete type=2 #424
-2022/06/27-01:08:46.534 b03c Delete type=2 #425
-2022/06/27-01:08:46.534 b03c Delete type=2 #426
-2022/06/27-01:08:46.534 b03c Delete type=2 #427
-2022/06/27-01:08:46.534 b03c Delete type=2 #428
-2022/06/27-01:08:46.535 b03c Delete type=2 #431
+2022/06/27-01:29:53.311 42fc Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/06/27-01:29:53.312 42fc Recovering log #430
+2022/06/27-01:29:53.401 42fc Reusing old log C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000430.log 
