@@ -1,12 +1,12 @@
 const users=[];
 const fetch = require("node-fetch");
 const qrcode = require('qrcode-terminal');
-const puppeteer = require("puppeteer");
-(async() => {
-    const browser = await puppeteer.launch({args:['--no-sandbox']});
-    console.log(await browser.version());
-    await browser.close();
-    })();
+// const puppeteer = require("puppeteer");
+// (async() => {
+//     const browser = await puppeteer.launch({args:['--no-sandbox']});
+//     console.log(await browser.version());
+//     await browser.close();
+//     })();
 const { Client, LocalAuth, ChatTypes } = require('whatsapp-web.js');
 const client = new Client({
     authStrategy: new LocalAuth()
