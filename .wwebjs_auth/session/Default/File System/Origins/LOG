@@ -1,3 +1,4 @@
-2022/06/27-11:11:55.757 50f8 Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001
-2022/06/27-11:11:55.758 50f8 Recovering log #3
-2022/06/27-11:11:55.758 50f8 Reusing old log C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\File System\Origins/000003.log 
+2022/06/27-13:46:09.658 b734 Log #3: 3 ops saved to Table #4 OK
+2022/06/27-13:46:10.672 b734 Archiving C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\File System\Origins/000003.log: IO error: C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\File System\Origins/000003.log: Could not rename file: File currently in use. (ChromeMethodBFE: 14::RenameFile::2)
+2022/06/27-13:46:10.672 b734 Table #4: 3 entries OK
+2022/06/27-13:46:11.684 b734 Archiving C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001: IO error: C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001: Could not rename file: File currently in use. (ChromeMethodBFE: 14::RenameFile::2)

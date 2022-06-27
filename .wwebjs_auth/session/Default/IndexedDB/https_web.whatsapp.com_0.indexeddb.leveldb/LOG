@@ -1,13 +1,70 @@
-2022/06/27-11:11:55.520 4758 Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/06/27-11:11:55.521 4758 Recovering log #442
-2022/06/27-11:11:55.555 4758 Reusing old log C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000442.log 
-2022/06/27-11:11:55.555 4758 Delete type=2 #432
-2022/06/27-11:11:55.555 4758 Delete type=2 #433
-2022/06/27-11:11:55.555 4758 Delete type=2 #434
-2022/06/27-11:11:55.555 4758 Delete type=2 #435
-2022/06/27-11:11:55.555 4758 Delete type=2 #436
-2022/06/27-11:11:55.556 4758 Delete type=2 #437
-2022/06/27-11:11:55.556 4758 Delete type=2 #438
-2022/06/27-11:11:55.556 4758 Delete type=2 #439
-2022/06/27-11:11:55.556 4758 Delete type=2 #440
-2022/06/27-11:11:55.556 4758 Delete type=2 #443
+2022/06/27-13:39:15.289 d00 Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/06/27-13:39:15.289 d00 Recovering log #1141
+2022/06/27-13:39:15.424 d00 Reusing old log C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001141.log 
+2022/06/27-13:39:26.225 b988 Level-0 table #1169: started
+2022/06/27-13:39:26.241 b988 Level-0 table #1169: 1075767 bytes OK
+2022/06/27-13:39:26.242 b988 Delete type=0 #1141
+2022/06/27-13:39:26.244 b988 Compacting 1@0 + 0@1 files
+2022/06/27-13:39:26.266 b988 Generated table #1170@0: 14857 keys, 324293 bytes
+2022/06/27-13:39:26.271 b988 Generated table #1171@0: 2125 keys, 156272 bytes
+2022/06/27-13:39:26.274 b988 Generated table #1172@0: 1553 keys, 31969 bytes
+2022/06/27-13:39:26.274 b988 Compacted 1@0 + 0@1 files => 512534 bytes
+2022/06/27-13:39:26.274 b988 compacted to: files[ 0 3 30 0 0 0 0 ]
+2022/06/27-13:39:26.929 46fc Compacting 1@1 + 7@2 files
+2022/06/27-13:39:26.990 46fc Generated table #1173@1: 33472 keys, 2255886 bytes
+2022/06/27-13:39:27.043 46fc Generated table #1174@1: 26709 keys, 2281642 bytes
+2022/06/27-13:39:27.130 46fc Generated table #1175@1: 70991 keys, 2287496 bytes
+2022/06/27-13:39:27.179 46fc Generated table #1176@1: 30794 keys, 2203471 bytes
+2022/06/27-13:39:27.203 46fc Generated table #1177@1: 2700 keys, 2161081 bytes
+2022/06/27-13:39:27.225 46fc Generated table #1178@1: 2659 keys, 2157670 bytes
+2022/06/27-13:39:27.248 46fc Generated table #1179@1: 3040 keys, 2162514 bytes
+2022/06/27-13:39:27.250 46fc Generated table #1180@1: 59 keys, 39354 bytes
+2022/06/27-13:39:27.250 46fc Compacted 1@1 + 7@2 files => 15549114 bytes
+2022/06/27-13:39:27.251 46fc compacted to: files[ 0 2 31 0 0 0 0 ]
+2022/06/27-13:39:27.251 46fc Delete type=2 #1157
+2022/06/27-13:39:27.251 46fc Delete type=2 #1158
+2022/06/27-13:39:27.251 46fc Delete type=2 #1159
+2022/06/27-13:39:27.251 46fc Delete type=2 #1160
+2022/06/27-13:39:27.251 46fc Delete type=2 #1161
+2022/06/27-13:39:27.251 46fc Delete type=2 #1162
+2022/06/27-13:39:27.251 46fc Delete type=2 #1163
+2022/06/27-13:39:27.251 46fc Delete type=2 #1169
+2022/06/27-13:39:27.251 46fc Delete type=2 #1170
+2022/06/27-13:39:27.583 b988 Compacting 1@1 + 10@2 files
+2022/06/27-13:39:27.613 b988 Generated table #1181@1: 2601 keys, 2157312 bytes
+2022/06/27-13:39:27.636 b988 Generated table #1182@1: 2990 keys, 2155388 bytes
+2022/06/27-13:39:27.685 b988 Generated table #1183@1: 30885 keys, 2209436 bytes
+2022/06/27-13:39:27.744 b988 Generated table #1184@1: 24671 keys, 2279856 bytes
+2022/06/27-13:39:27.803 b988 Generated table #1185@1: 24923 keys, 2276240 bytes
+2022/06/27-13:39:27.859 b988 Generated table #1186@1: 24336 keys, 2272808 bytes
+2022/06/27-13:39:27.918 b988 Generated table #1187@1: 27503 keys, 2254917 bytes
+2022/06/27-13:39:27.945 b988 Generated table #1188@1: 8746 keys, 2130695 bytes
+2022/06/27-13:39:27.974 b988 Generated table #1189@1: 10210 keys, 2134942 bytes
+2022/06/27-13:39:28.062 b988 Generated table #1190@1: 103746 keys, 2254302 bytes
+2022/06/27-13:39:28.064 b988 Generated table #1191@1: 1799 keys, 45214 bytes
+2022/06/27-13:39:28.064 b988 Compacted 1@1 + 10@2 files => 22171110 bytes
+2022/06/27-13:39:28.065 b988 compacted to: files[ 0 1 32 0 0 0 0 ]
+2022/06/27-13:40:19.881 b988 Compacting 1@1 + 5@2 files
+2022/06/27-13:40:19.961 b988 Generated table #1192@1: 95839 keys, 2246686 bytes
+2022/06/27-13:40:20.041 b988 Generated table #1193@1: 95955 keys, 2246428 bytes
+2022/06/27-13:40:20.121 b988 Generated table #1194@1: 96354 keys, 2247078 bytes
+2022/06/27-13:40:20.169 b988 Generated table #1195@1: 56303 keys, 1341422 bytes
+2022/06/27-13:40:20.169 b988 Compacted 1@1 + 5@2 files => 8081614 bytes
+2022/06/27-13:40:20.169 b988 compacted to: files[ 0 0 31 0 0 0 0 ]
+2022/06/27-13:40:20.169 b988 Delete type=2 #841
+2022/06/27-13:40:20.170 b988 Delete type=2 #842
+2022/06/27-13:40:20.170 b988 Delete type=2 #1146
+2022/06/27-13:40:20.170 b988 Delete type=2 #1147
+2022/06/27-13:40:20.170 b988 Delete type=2 #1148
+2022/06/27-13:40:20.170 b988 Delete type=2 #1149
+2022/06/27-13:40:20.170 b988 Delete type=2 #1150
+2022/06/27-13:40:20.170 b988 Delete type=2 #1151
+2022/06/27-13:40:20.170 b988 Delete type=2 #1152
+2022/06/27-13:40:20.170 b988 Delete type=2 #1153
+2022/06/27-13:40:20.170 b988 Delete type=2 #1154
+2022/06/27-13:40:20.170 b988 Delete type=2 #1155
+2022/06/27-13:40:20.170 b988 Delete type=2 #1156
+2022/06/27-13:40:20.170 b988 Delete type=2 #1165
+2022/06/27-13:40:20.170 b988 Delete type=2 #1166
+2022/06/27-13:40:20.170 b988 Delete type=2 #1171
+2022/06/27-13:40:20.170 b988 Delete type=2 #1172

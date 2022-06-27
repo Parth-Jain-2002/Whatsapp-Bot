@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8069f59e-527e-4c05-a98c-99b7fce41a8d/microsoft.web/sites/subscriptions/8069f59e-527e-4c05-a98c-99b7fce41a8d/resourceGroups/whatsappbot900b_group/providers/Microsoft.Web/sites/whatsappbot900b",
+    "appService.deploySubpath": "."
+}
