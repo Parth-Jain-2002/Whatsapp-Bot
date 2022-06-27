@@ -4,7 +4,8 @@
   "description": "Whatsapp bot with codeforces integration",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" ",
+    "build" : "node index.js"
   },
   "author": "Parth Jain",
   "license": "ISC",
