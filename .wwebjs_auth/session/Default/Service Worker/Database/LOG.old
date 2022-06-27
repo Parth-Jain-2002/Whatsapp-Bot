@@ -1,3 +1,2 @@
-2022/06/27-13:35:23.024 c864 Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001
-2022/06/27-13:35:23.024 c864 Recovering log #3
-2022/06/27-13:35:23.025 c864 Reusing old log C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\Service Worker\Database/000003.log 
+2022/06/27-16:11:07.002 a1b8 Creating DB C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\Service Worker\Database since it was missing.
+2022/06/27-16:11:07.006 a1b8 Reusing MANIFEST C:\MasterFolder\General\CODING\Projects\Whatsapp-Bot\.wwebjs_auth\session\Default\Service Worker\Database/MANIFEST-000001
