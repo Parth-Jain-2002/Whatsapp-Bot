@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const qrcode = require('qrcode-terminal');
 const puppeteer = require("puppeteer");
 (async() => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({args:['--no-sandbox']});
     console.log(await browser.version());
     await browser.close();
     })();
