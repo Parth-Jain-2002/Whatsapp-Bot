@@ -34,8 +34,7 @@ const contestperform = async (handle,contestID) => {
        }
     }
     else{
-        text = ` ● Handle : *${handle}*
-         || Rank : *USER NOT FOUND<* `
+        text = ` ● Handle : *${handle}* || Rank : *USER NOT FOUND* `
     }
     return text;
 }

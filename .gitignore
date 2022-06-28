@@ -9,6 +9,7 @@ firebase-debug.*.log*
 
 # Firebase cache
 .firebase/
+.wwebjs_auth/
 
 # Firebase config
 
@@ -64,3 +65,5 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+data.json
