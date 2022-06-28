@@ -14,38 +14,45 @@ const client = new Client({
     }
 });
 
-const contestperform = async (handle,contestID) => {
-    const url = `https://codeforces.com/api/user.rating?handle=${handle}`
-    const data = await fetch(url);
-    const response = await data.json();
-    let text = "";
-    if(response.status === "OK"){
-       const result = await response.result;
-       result.reverse();
-       for(let i=0;i<Math.min(10,result.length);i++){
-           const t_row = result[i];
-           console.log(t_row.contestId);
-           if(t_row.contestId == contestID){
-              text = ` ● Handle : *${t_row.handle}* || Rank : *${t_row.rank}* `
-           }
-       }
-       if(text==""){
-         text = ` ● Handle : *${handle}* || Rank : *NOT GIVEN* `
-       }
-    }
-    else{
-        text = ` ● Handle : *${handle}* || Rank : *USER NOT FOUND* `
-    }
-    return text;
-}
-
 const contestperformance = async (contestID,users) => {
-    let text = "";
+    let text = ""
+    let given = [];
+    let notgiven = "";
     for(let i=0;i<users.length;i++){
-        let perform = await contestperform(users[i],contestID);
-        console.log(perform);
-        text+=perform+"\n";
+        const handle = users[i];
+        const url = `https://codeforces.com/api/user.rating?handle=${handle}`
+        const data = await fetch(url);
+        const response = await data.json();
+        let text = "";
+        if(response.status === "OK"){
+            const result = await response.result;
+            result.reverse();
+            // This line limits the no of contests to 50
+            for(let i=0;i<Math.min(50,result.length);i++){
+                const t_row = result[i];
+                if(t_row.contestId == contestID){
+                    text = ` ● Handle : *${handle}* || Rank : *${t_row.rank}* `
+                    let data = [];
+                    data.push(handle);
+                    data.push(t_row.rank);
+                    given.push(data);
+                }
+            }
+            if(text==""){
+                notgiven += ` ● Handle : *${handle}* || Rank : *NOT GIVEN* \n`
+            }
+        }
+        else{
+            notgiven += ` ● Handle : *${handle}* || Rank : *USER NOT FOUND* \n`
+        }
     }
+    console.log(given);
+    given.sort( function(a,b){ return (a[1] < b[1]) ? -1 : 1;});
+    console.log(given);
+    for(let i in given){
+        text+= ` ● Handle : *${given[i][0]}* || Rank : *${given[i][1]}* \n`;
+    }
+    text+=notgiven;
     return text;
 }
 
@@ -56,6 +63,30 @@ const checkAdmin = (myData, id) => {
         if(i == id) return true;
     }
     return false;
+}
+
+const checkValid = async (handle) => {
+    const url = `https://codeforces.com/api/user.rating?handle=${handle}`
+    const data = await fetch(url);
+    const response = await data.json();
+    if(response.status=="OK"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+const checkContest = async(contest) =>{
+    const url = `https://codeforces.com/api/contest.status?contestId=${contest}&from=1&count=1`
+    const data = await fetch(url);
+    const response = await data.json();
+    if(response.status=="OK"){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 client.on('qr', (qr) => {
@@ -259,11 +290,29 @@ _This feature is available for individual users_
         if(words[0] === '#adduser'){
             let grpid = chat.id.user;
             let users = myData.groups[grpid];
+            let text = "";
+            let success = "";
+            let fail = "";
+            let already = ""
             for(let i=1;i<words.length;i++){
+                let isValid = await checkValid(words[i]);
                 if(!users.includes(words[i])){
-                    myData.groups[grpid].push(words[i]);
+                    if(isValid){
+                        myData.groups[grpid].push(words[i]);
+                        success+=words[i]+" ";
+                    }
+                    else{
+                        fail+=words[i]+" ";
+                    }
+                }
+                else{
+                    already+=words[i]+" ";
                 }
             }
+            if(success!="") text+="SUCCESS : "+success+"were successfully added.\n";
+            if(fail!="") text+="FAILED : "+fail+"didn't exist.\n";
+            if(already!="") text+="ALREADY : "+already+"were already added.\n";
+            message.reply(text);
         }
         
         // Show all user ids stored in system
@@ -280,9 +329,21 @@ _This feature is available for individual users_
         // Delete user
         if(words[0] === '#deleteuser'){
             let grpid = chat.id.user;
+            let to_send = ""
+            let text = ""
+            let notexist = ""
             for(let i=1;i<words.length;i++){
-                if(myData.groups[grpid].includes(words[i]))  myData.groups[grpid].splice(myData.groups[grpid].indexOf(words[i]),1);
+                if(myData.groups[grpid].includes(words[i])){
+                    myData.groups[grpid].splice(myData.groups[grpid].indexOf(words[i]),1);
+                    text+= words[i]+" ";
+                }
+                else{
+                    notexist+=words[i]+" ";
+                }
             }
+            if(text!="") to_send += "SUCCESS: " + text + "were successfully removed.\n";
+            if(notexist!="") to_send += "FAILED: " + notexist + "didn't exist.\n";
+            message.reply(to_send);
         }
         
         // This is for individual users
@@ -296,12 +357,12 @@ _This feature is available for individual users_
                 console.log(result.firstName);
                 let text = 
     `USER DETAILS :
-    --------------------
+--------------------
 
-    NAME : ${result.firstName} ${result.lastName}
-    RANK : ${result.rank}
-    CURRENT RATING : ${result.rating}
-    MAXRATING : ${result.maxRating}`
+NAME : ${result.firstName} ${result.lastName}
+RANK : ${result.rank}
+CURRENT RATING : ${result.rating}
+MAXRATING : ${result.maxRating}`
                 chat.sendMessage(text);
             }
             }
@@ -317,7 +378,14 @@ _This feature is available for individual users_
             if(isAdmin){
                 let grpid = chat.id.user;
                 let users = myData.groups[grpid];
-                let to_send = await contestperformance(words[1],users);
+                let isValid = await checkContest(words[1]);
+                let to_send;
+                if(isValid){
+                    to_send = await contestperformance(words[1],users);
+                }
+                else{
+                    to_send = `Contest with ID ${words[1]} doesn't exist`
+                }
                 chat.sendMessage(to_send);
             }
             else{
