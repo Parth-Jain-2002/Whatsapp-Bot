@@ -17,48 +17,50 @@ const client = new Client({
 const contestperformance = async (contestID,users) => {
     let text = ""
     let given = [];
+    let givenhandles = [];
     let notgiven = "";
+    let handles = "";
     for(let i=0;i<users.length;i++){
-        const handle = users[i];
-        const url = `https://codeforces.com/api/user.rating?handle=${handle}`
-        const data = await fetch(url);
-        const response = await data.json();
-        let text = "";
-        if(response.status === "OK"){
-            const result = await response.result;
-            result.reverse();
-            // This line limits the no of contests to 50
-            for(let i=0;i<Math.min(50,result.length);i++){
-                const t_row = result[i];
-                if(t_row.contestId == contestID){
-                    text = ` ● Handle : *${handle}* || Rank : *${t_row.rank}* `
-                    let data = [];
-                    data.push(handle);
-                    data.push(t_row.rank);
-                    given.push(data);
-                }
-            }
-            if(text==""){
-                notgiven += ` ● Handle : *${handle}* || Rank : *NOT GIVEN* \n`
-            }
-        }
-        else{
-            notgiven += ` ● Handle : *${handle}* || Rank : *USER NOT FOUND* \n`
+        if(i==users.length-1) handles+=users[i];
+        else handles+=users[i]+";";
+    }
+    const url = `https://codeforces.com/api/contest.standings?contestId=${contestID}&handles=${handles}`
+    const data = await fetch(url);
+    //console.log(data);
+    const response = await data.json();
+    if(response.status === "OK"){
+        const result = response.result;
+        const ratings = result.rows;
+        //console.log(ratings);
+        for(let i=0;i<ratings.length;i++){
+            const t_row = ratings[i];
+            let data = [];
+            data.push(t_row.party.members[0].handle);
+            givenhandles.push(t_row.party.members[0].handle);
+            data.push(t_row.rank);
+            given.push(data);
+            //console.log(given);
         }
     }
-    console.log(given);
     given.sort( function(a,b){ return (a[1] < b[1]) ? -1 : 1;});
-    console.log(given);
+    text+=
+    `CONTEST DETAILS :-
+-------------------\n\n`
     for(let i in given){
-        text+= ` ● Handle : *${given[i][0]}* || Rank : *${given[i][1]}* \n`;
+        text+= ` ${parseInt(i)+1}. Handle : *${given[i][0]}* || Rank : *${given[i][1]}* \n`;
     }
-    text+=notgiven;
+    text+=`\n_NOT GIVEN CONTEST:-_ \n`
+    let j=1;
+    for(let i of users){
+        if(!givenhandles.includes(i)){
+            text+=`${j}. ${i}\n`;
+            j++;
+        }
+    }
     return text;
 }
 
 const checkAdmin = (myData, id) => {
-    console.log(myData);
-    console.log(id);
     for(let i of myData){
         if(i == id) return true;
     }
@@ -66,7 +68,7 @@ const checkAdmin = (myData, id) => {
 }
 
 const checkValid = async (handle) => {
-    const url = `https://codeforces.com/api/user.rating?handle=${handle}`
+    const url = `https://codeforces.com/api/user.info?handles=${handle}`
     const data = await fetch(url);
     const response = await data.json();
     if(response.status=="OK"){
@@ -87,6 +89,10 @@ const checkContest = async(contest) =>{
     else{
         return false;
     }
+}
+
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
 client.on('qr', (qr) => {
@@ -298,7 +304,7 @@ _This feature is available for individual users_
                 let isValid = await checkValid(words[i]);
                 if(!users.includes(words[i])){
                     if(isValid){
-                        myData.groups[grpid].push(words[i]);
+                        await myData.groups[grpid].push(words[i]);
                         success+=words[i]+" ";
                     }
                     else{
@@ -308,6 +314,7 @@ _This feature is available for individual users_
                 else{
                     already+=words[i]+" ";
                 }
+                await sleep(1000);
             }
             if(success!="") text+="SUCCESS : "+success+"were successfully added.\n";
             if(fail!="") text+="FAILED : "+fail+"didn't exist.\n";
@@ -354,7 +361,7 @@ _This feature is available for individual users_
             const response = await data.json();
             if(response.status === "OK"){
                 const result = response.result[0];
-                console.log(result.firstName);
+                //console.log(result.firstName);
                 let text = 
     `USER DETAILS :
 --------------------
@@ -374,28 +381,28 @@ MAXRATING : ${result.maxRating}`
         
         // Contest performance for all users
         if(words[0]=='#contestperformance' && words.length==2){
-        if(isGrp){
-            if(isAdmin){
-                let grpid = chat.id.user;
-                let users = myData.groups[grpid];
-                let isValid = await checkContest(words[1]);
-                let to_send;
-                if(isValid){
-                    to_send = await contestperformance(words[1],users);
+            if(isGrp){
+                if(isAdmin){
+                    let grpid = chat.id.user;
+                    let users = myData.groups[grpid];
+                    let isValid = await checkContest(words[1]);
+                    let to_send;
+                    if(isValid){
+                        to_send = await contestperformance(words[1],users);
+                    }
+                    else{
+                        to_send = `Contest with ID ${words[1]} doesn't exist`
+                    }
+                    await chat.sendMessage(to_send);
                 }
                 else{
-                    to_send = `Contest with ID ${words[1]} doesn't exist`
+                    await chat.sendMessage(`This feature is available only for admins`);
                 }
-                chat.sendMessage(to_send);
             }
             else{
-                chat.sendMessage(`This feature is available only for admins`);
+                let text = "This feature is available only for groups."
+                await chat.sendMessage(text);
             }
-        }
-        else{
-            let text = "This feature is available only for groups."
-            chat.sendMessage(text);
-        }
         }
     }
     
